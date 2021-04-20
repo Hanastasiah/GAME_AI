@@ -2,6 +2,7 @@
 import pygame, sys
 from pygame.locals import *
 import time
+import random
 
 # Import other classes
 from Background import Background
@@ -37,11 +38,11 @@ pygame.display.set_caption("Group 15")
 # Setting up Sprites
 P1 = Player(SCREEN_WIDTH, SCREEN_HEIGHT) #defines the player object
 
-E1 = Obstacle(SCREEN_WIDTH,SCREEN_HEIGHT,SPEED) #defines the original obstacles object spawing when we enter a new "screen scene" in the game
+E1 = Obstacle(SCREEN_WIDTH,SCREEN_HEIGHT,SPEED, 40, 70, 0) #defines the original obstacles object spawing when we enter a new "screen scene" in the game
 
 #E2 = Obstacle(SCREEN_WIDTH,SCREEN_HEIGHT/2,SPEED) #obstacle that could be used for spawning random obstacles (e.g. vortex)
 
-#E3 = Obstacle(SCREEN_WIDTH,SCREEN_HEIGHT+350,SPEED)
+E3 = Obstacle(SCREEN_WIDTH,SCREEN_HEIGHT,SPEED, 405, 50, -350)
 
 back_ground = Background(SCREEN_WIDTH,SCREEN_HEIGHT,DISPLAYSURF) #defines the background object
 
@@ -49,11 +50,13 @@ back_ground = Background(SCREEN_WIDTH,SCREEN_HEIGHT,DISPLAYSURF) #defines the ba
 obstacles = pygame.sprite.Group()
 obstacles.add(E1)
 #obstacles.add(E2)
+obstacles.add(E3)
 
 all_sprites = pygame.sprite.Group()
 all_sprites.add(P1)
 all_sprites.add(E1)
 #all_sprites.add(E2)
+all_sprites.add(E3)
 
 # Adding a new User event: how often to look for user event?
 INC_SPEED = pygame.USEREVENT + 1
