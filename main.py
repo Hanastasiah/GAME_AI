@@ -96,6 +96,7 @@ while True:
         DISPLAYSURF.blit(game_over, (SCREEN_WIDTH/10, SCREEN_HEIGHT/4)) #Writes game over on the screen on top of the black screen
 
         pygame.display.update()
+
         for entity in all_sprites:
             entity.kill()
         time.sleep(1.5) #wait one and a half second
